@@ -93,14 +93,15 @@
             <label for="others">
                 <input class="type" type="radio" class="services" id="others" name="services" value="others"
                     onchange="toggleOtherServices()" />
-                Others Services <input class="type other" id="otherServicesInput" required style="display: none;">
-            </label>
+                Others Services</label>
+            <input class="type other" id="otherServicesInput" style="display: none;" />
+
             <!-- <div class="formdesign" id="comments">
                 Comments:<textarea type="comments" name="fcomments" rows="10" cols="100"></textarea>
            
         </div> -->
         </div>
-        </div>
+
         <label for="bookingDate" class="formdesign">Select a booking date:</label>
         <input type="date" id="bookingDate" class="date" required>
 
@@ -188,9 +189,12 @@
             otherServicesInput.value = '';
         }
     }
+    var radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(function (radioButton) {
+        radioButton.addEventListener('change', toggleOtherServices);
+    });
+
     toggleOtherServices();
-
-
 
 
 
